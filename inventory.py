@@ -77,28 +77,6 @@ def check_stock():
     if low_stock_items:
         messagebox.showwarning("Low Stock", f"The following items are running low in stock: {', '.join(low_stock_items)}")
 
-# def record_sale():
-#     if not products_tree.selection():
-#         messagebox.showerror("Error", "Please select a product to sell")
-#         return
-
-#     selected_item = products_tree.selection()[0]
-#     product_id = products_tree.item(selected_item, 'values')[0]
-#     quantity_sold = simpledialog.askinteger("Sell Product", "Enter quantity sold:")
-#     if quantity_sold:
-#         c.execute("SELECT quantity FROM products WHERE id = ?", (product_id,))
-#         current_quantity = c.fetchone()[0]
-#         if current_quantity >= quantity_sold:
-#             new_quantity = current_quantity - quantity_sold
-#             c.execute("UPDATE products SET quantity = ? WHERE id = ?", (new_quantity, product_id))
-#             conn.commit()
-#             messagebox.showinfo("Success", "Sale recorded successfully")
-#             display_products()
-#         else:
-#             messagebox.showerror("Error", "Insufficient stock")
-#     else:
-#         messagebox.showerror("Error", "Invalid quantity")
-
 
 def record_sale():
     if not products_tree.selection():
@@ -121,27 +99,7 @@ def record_sale():
             messagebox.showerror("Error", "Insufficient stock")
     else:
         messagebox.showerror("Error", "Invalid quantity")
-
-
-
-
-# def record_sale():
-#     selected_item = products_tree.selection()[0]
-#     product_id = products_tree.item(selected_item, 'values')[0]
-#     quantity_sold = simpledialog.askinteger("Sell Product", "Enter quantity sold:")
-#     if quantity_sold:
-#         c.execute("SELECT quantity FROM products WHERE id = ?", (product_id,))
-#         current_quantity = c.fetchone()[0]
-#         if current_quantity >= quantity_sold:
-#             new_quantity = current_quantity - quantity_sold
-#             c.execute("UPDATE products SET quantity = ? WHERE id = ?", (new_quantity, product_id))
-#             conn.commit()
-#             messagebox.showinfo("Success", "Sale recorded successfully")
-#             display_products()
-#         else:
-#             messagebox.showerror("Error", "Insufficient stock")
-#     else:
-#         messagebox.showerror("Error", "Invalid quantity")
+      
 
 def generate_report():
     top_selling_items = []
